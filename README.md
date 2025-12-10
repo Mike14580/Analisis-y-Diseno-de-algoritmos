@@ -1,2 +1,2 @@
-# An-lisis-y-Dise-o-de-algoritmos
+# Analisis-y-Diseño-de-algoritmos
 Proyecto para clase de ADA tercer semestre
