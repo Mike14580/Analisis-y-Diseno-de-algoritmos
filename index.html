@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planificador de Entrevistas</title>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh; padding: 20px;
+        }
+        .container {
+            max-width: 1400px; margin: 0 auto;
+            background: white; border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            color: white; padding: 30px; text-align: center;
+        }
+        .content { padding: 30px; }
+        .section {
+            margin-bottom: 30px; padding: 20px;
+            background: #f8f9fa; border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        h2 { color: #667eea; margin-bottom: 15px; }
+        label { display: block; font-weight: 600; margin-bottom: 5px; }
+        input, select {
+            width: 100%; padding: 10px;
+            border: 2px solid #e0e0e0; border-radius: 5px;
+            font-size: 14px;
+        }
+        .two-col {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+        }
+        .btn {
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            color: white; padding: 15px;
+            width: 100%; border: none; margin-top: 10px;
+            border-radius: 5px; font-size: 16px; cursor: pointer;
+        }
+        .results { margin-top: 30px; }
+        .interview-card {
+            background: white; padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px; margin-bottom: 10px;
+            border-left: 5px solid #28a745;
+        }
+        .interview-card.failed { border-left-color: #dc3545; background: #fff5f5; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1> Planificador de Entrevistas</h1>
+            <p>Algoritmo Greedy para programación de entrevistas académicas</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2> Configuración del Problema</h2>
+
+                <div class="two-col">
+                    <div>
+                        <label>Fecha Inicio:</label>
+                        <input type="date" id="fechaInicio" value="2025-12-05">
+                    </div>
+                    <div>
+                        <label>Fecha Fin:</label>
+                        <input type="date" id="fechaFin" value="2025-12-09">
+                    </div>
+                </div>
+
+                <label style="margin-top:15px;">Días NO hábiles:</label>
+                <input type="text" id="diasNoHabiles" value="6,7">
+
+                <div class="two-col" style="margin-top:15px;">
+                    <div>
+                        <label>Hora Inicio:</label>
+                        <input type="time" id="horaInicio" value="09:00">
+                    </div>
+                    <div>
+                        <label>Hora Fin:</label>
+                        <input type="time" id="horaFin" value="18:00">
+                    </div>
+                </div>
+
+                <div class="two-col" style="margin-top:15px;">
+                    <div>
+                        <label>Duración entrevista (hrs):</label>
+                        <input type="number" id="duracion" value="2" min="1" max="4">
+                    </div>
+                    <div>
+                        <label>Máx. Concurrentes:</label>
+                        <input type="number" id="maxConcurrentes" value="3" min="1">
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2> Datos </h2>
+                <button class="btn" onclick="usarEjemplo()">Usar Datos precargados</button>
+                <button class="btn" onclick="planificar()">Planificar Entrevistas</button>
+            </div>
+
+            <div class="results" id="results" style="display:none;"></div>
+        </div>
+    </div>
+
+    <script src="logica.js"></script>
+</body>
+</html>
